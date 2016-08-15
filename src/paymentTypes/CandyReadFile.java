@@ -64,7 +64,7 @@ public class CandyReadFile {
 		}
 	}
 
-	public static void writeToFileAppend(File myCandyFile) {
+	/*public static void writeToFileAppend(File myCandyFile) {
 		FileWriter wrt = null;
 		// now we know where the file is and how to get information for that
 		// file
@@ -82,5 +82,5 @@ public class CandyReadFile {
 
 		} catch (IOException e) {
 		}
-	}
+	}*/
 }
