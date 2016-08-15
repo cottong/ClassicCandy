@@ -21,6 +21,7 @@ public class Cash extends Payment {
 		scan1.nextLine();
 		setAmountTendered(userInput);
 		change = getAmountTendered() - calcGrandTotal();
+		scan1.close();
 		return change;
 	}
 
