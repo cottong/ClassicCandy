@@ -1,1 +1,49 @@
-
+1	 M&Ms
+2	 Hershey's Kiss
+3	 Snickers
+4	 Twizzlers
+5	 Reese's peanut butter cups
+6	 Kit-Kat
+7	 Gummi bears/worms/etc
+8	 Butterfinger
+9	 Twix
+10	 Hershey Bar
+11	 Jelly Belly
+12	 Three Musketeers
+13	 Candy corn
+14	 York Peppermint Patties
+15	 Tootsie Rolls/Tootsie Roll pops
+16	 Skittles
+17	 Cadbury eggs
+18	 Milky Way
+19	 Swedish Fish
+20	 Cotton candy
+21	 Junior Mints
+22	 Reese's pieces
+23	 Peeps
+24	 Payday
+25	 Baby Ruth
+26	 Starburst
+27	 Atomic Fireball
+28	 Sour Patch Kids
+29	 Almond Joy
+30	 Blow Pops
+31	 Pixie Stix
+32	 Milk Duds
+33	 Pez
+34	 Smarties
+35	 Mr. Goodbar
+36	 Toblerone
+37	 Jolly Ranchers
+38	 Red Vines
+39	 Salt water taffy
+40	 Candy cigarettes
+41	 Pocky
+43	 Nerds
+44	 Necco wafers
+45	 Pop Rocks
+46	 Sugar Daddy
+47	 Wax lips
+48	 Circus peanuts
+49	 Nik-L-Nips
+50	 Werther's Original
