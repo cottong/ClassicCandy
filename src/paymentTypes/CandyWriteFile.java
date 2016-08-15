@@ -11,14 +11,12 @@ import java.nio.file.*;
 
 public class CandyWriteFile {
 
-	/**/
-
-	public static void main(String[] args) {
+	
 		Path filePath = Paths.get("CandyData.txt");
 		File myCandyFile = filePath.toFile();
-		//writeToFileAppend(myCandyFile);
-		readFile(myCandyFile);
-	}
+
+	
+	
 
 	public static void readFile(File myCandyFile) {
 		try {
@@ -46,19 +44,5 @@ public class CandyWriteFile {
 			wrt.close();
 		}
 	}
-
-	/*public static void writeToFileAppend(File myCandyFile) {
-		FileWriter wrt = null;
-		try {
-			wrt = new FileWriter(myCandyFile, true);
-			wrt.append("Hello World!");
-			wrt.close();
-
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-
-		}
-	}*/
 }
 
