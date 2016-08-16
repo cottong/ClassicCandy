@@ -1,40 +1,30 @@
 package paymentTypes;
 
 public class Payment {
-	private double price;
-	private int quantity;
+
 	public final double tax = 0.06;
+	private double subTotal; 
 
-	public double getPrice() {
-		return price;
+	public double getSubTotal() {
+		return subTotal;
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
+	public void setSubTotal(double subTotal) {
+		this.subTotal = subTotal;
 	}
 
-	public int getQuantity() {
-		return quantity;
-	}
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
 
-	public double calcSubtotal() {
-		double subtotal = 0.0;
-		subtotal = getPrice() * getQuantity();
-		return subtotal;
-	}
+	
 
 	public double calcGrandTotal() {
 		double grandTotal = 0.0;
-		grandTotal = getPrice() * getQuantity() * (1 + tax);
+		grandTotal = getSubTotal() * (1 + tax);
 		return grandTotal;
 	}
 
 	public double calcSalesTax() {
-		double salesTax = calcSubtotal() * tax;
+		double salesTax = getSubTotal() * tax;
 		return salesTax;
 	}
 }
