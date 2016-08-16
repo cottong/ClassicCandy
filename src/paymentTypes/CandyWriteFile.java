@@ -15,8 +15,6 @@ public class CandyWriteFile {
 		Path filePath = Paths.get("CandyData.txt");
 		File myCandyFile = filePath.toFile();
 
-	
-	
 
 	public static void readFile(File myCandyFile) {
 		try {
