@@ -43,6 +43,7 @@ public class POSApp {
 		int candyNumber = scan1.nextInt();
 		scan1.nextLine();
 		String candyName = list.get(candyNumber - 1).getName();
+		
 		//System.out.println(candyName);
 		
 		//prompt the user for a quantity
