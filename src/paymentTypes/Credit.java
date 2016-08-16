@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class Credit extends Payment {
 	String creditCardNumber;
-	Date expiration;
+	String expiration;
 	int CVV;
 	
 	
 	
-	public Credit(String creditCardNumber, Date expiration, int cVV) {
+	public Credit(String creditCardNumber, String expiration, int cVV) {
 		
 		setCreditCardNumber(creditCardNumber);
 		setExpiration(expiration);
@@ -24,11 +24,11 @@ public class Credit extends Payment {
 		this.creditCardNumber = creditCardNumber;
 	}
 
-	public Date getExpiration() {
+	public String getExpiration() {
 		return expiration;
 	}
 
-	public void setExpiration(Date expiration) {
+	public void setExpiration(String expiration) {
 		this.expiration = expiration;
 	}
 
