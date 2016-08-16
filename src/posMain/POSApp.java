@@ -76,8 +76,8 @@ public class POSApp {
 			// calculate subTotal
 			Cash cashSale = new Cash();
 			cashSale.setSubTotal(totalSubtotal);
-			System.out.println("Grand Total: " + cashSale.calcGrandTotal());
-			System.out.println("Change: " + cashSale.calcChange());
+			System.out.println("Grand Total: " + cashSale.formatNumber(cashSale.calcGrandTotal()));
+			System.out.println("Change: " + cashSale.formatNumber(cashSale.calcChange()));
 		} else if (paymentMethod.equalsIgnoreCase("credit")) {
 			System.out.println("Please enter your credit card number.");
 			String creditCardNumber = scan1.nextLine();
