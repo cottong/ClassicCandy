@@ -22,7 +22,7 @@ public class ProductClass {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public String getName(String name) {
+	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
