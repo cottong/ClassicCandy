@@ -6,6 +6,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+//import java.paymentTypes.*;
+
 import paymentTypes.*;
 
 public class POSApp {
@@ -36,6 +38,8 @@ public class POSApp {
 		Path filePath = Paths.get("CandyData.txt");
 		File myCandyFile = filePath.toFile();
 		CandyWriteFile.readFile(myCandyFile);
+
+
 
 		// one loop for name, price, quantity. gather all together in a loop,
 		// the do payment processing
@@ -100,6 +104,7 @@ public class POSApp {
 			 * System.out.println("Change: " + sale1.calcChange());
 			 */
 		}
+
 
 	}
 }
