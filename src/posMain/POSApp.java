@@ -4,6 +4,7 @@ import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 import paymentTypes.*;
 
@@ -11,11 +12,11 @@ public class POSApp {
 
 	public static void main(String[] args) {
 
-		Scanner scan1 = new Scanner (System.in);
-		
+		Scanner scan1 = new Scanner(System.in);
+
 		ArrayList<ProductClass> list = new ArrayList<ProductClass>();
-		list.add(new ProductClass("m&m", "chocolate", "chocolate with candy coating", 1.89));
-		list.add(new ProductClass("Hershey's Kiss", "chocolate", "small delicious chocolate", 1.89));
+		list.add(new ProductClass("m&m", "chocolate", "chocolate with candy coating", 1.00));
+		list.add(new ProductClass("Hershey's Kiss", "chocolate", "small delicious chocolate", 2.00));
 		list.add(new ProductClass("Snickers", "chocolate", "chocolate with nuts and caramel", 1.89));
 		list.add(new ProductClass("Twizzlers", "chewy candy", "red licorice", 1.50));
 		list.add(new ProductClass("Reese's peanut butter cups", "chocolate", "chocolate with peanut butter", 1.89));
@@ -28,45 +29,77 @@ public class POSApp {
 		list.add(new ProductClass("Three Musketeers", "chocolate", "chocolate covered nugget", 1.89));
 		list.add(new ProductClass("Candy Corn", "chewy candy", "small halloween candy", 1.89));
 
-		
-		//greet the user
+		// greet the user
 		System.out.println("Welcome to the Classic Candy Store.\nHere are the candies you can choose from: ");
-		
-		//read the text file and prints to the console
+
+		// read the text file and prints to the console
 		Path filePath = Paths.get("CandyData.txt");
 		File myCandyFile = filePath.toFile();
 		CandyWriteFile.readFile(myCandyFile);
-		
-		//prompt the user choose an item
-		int candyNumber = scan1.nextInt();
-		scan1.nextLine();
-		String candyName = list.get(candyNumber - 1).getName();
-		double candyPrice = list.get(candyNumber - 1).getPrice();
-		
-		//System.out.println(candyName);
-		
-		//prompt the user for a quantity
-		System.out.println("How many " + candyName + " do you want to buy today?");
-		int quantity = scan1.nextInt();
-		scan1.nextLine();
+
+		// one loop for name, price, quantity. gather all together in a loop,
+		// the do payment processing
+		String choice = "yes";
+		double totalSubtotal = 0.0;
+
+		while (choice.equalsIgnoreCase("yes")) {
+
+			System.out.println("What kind of candy would you like today? (Enter candy number)");
+			int candyNumber = scan1.nextInt();
+			scan1.nextLine();
+			String candyName = list.get(candyNumber - 1).getName();
+			double candyPrice = list.get(candyNumber - 1).getPrice();
+
+			System.out.println("How many " + candyName + " do you want to buy today?");
+			int quantity = scan1.nextInt();
+			scan1.nextLine();
+
+			double subTotal = candyPrice * quantity;
+			totalSubtotal = totalSubtotal + subTotal;
+			System.out.println("Would you like to choose another item? (YES or NO)");
+			choice = scan1.nextLine();
+
+			// calculate tax
+			// store math in variable total price
+			//
+		}
+
 		System.out.println("Would you like to pay with CASH, CREDIT or CHECK?");
 		String paymentMethod = scan1.nextLine();
-		
-		if (paymentMethod.equalsIgnoreCase("cash")) {
-			//create Cash object; set to a variable
-			Cash sale1 = new Cash();
-			//in order to calculate a cash sale, need price and quantity
-			sale1.setPrice(candyPrice);
-			sale1.setQuantity(quantity);
-			
-			/*System.out.println(sale1.calcSubtotal());
-			System.out.println(sale1.calcSalesTax());
-			System.out.println(sale1.calcGrandTotal());
-			System.out.println(sale1.calcChange());*/
-		}
-		
-		
-		
-	}
 
+		if (paymentMethod.equalsIgnoreCase("cash")) {
+			// create Cash object; save totalSubtotal value in order to
+			// calculate subTotal
+			Cash cashSale = new Cash();
+			cashSale.setSubTotal(totalSubtotal);
+			System.out.println("Grand Total: " + cashSale.calcGrandTotal());
+			System.out.println("Change: " + cashSale.calcChange());
+		} else if (paymentMethod.equalsIgnoreCase("credit")) {
+			System.out.println("Please enter your credit card number.");
+			String creditCardNumber = scan1.nextLine();
+
+			System.out.println("Please enter your card's CVV:");
+			int cVV = scan1.nextInt();
+			scan1.nextLine();
+			System.out.println("Please enter the card's expiration date: (mm/dd/yyyy)");
+			String expiration = scan1.nextLine();
+			Credit creditSale = new Credit(creditCardNumber, expiration, cVV);
+			System.out.println("Thank you for your purchase.");
+		} else if (paymentMethod.equalsIgnoreCase("check")) {
+			System.out.println("Please enter the check number: ");
+			int checkNumber = scan1.nextInt();
+			scan1.nextLine();
+			Check checkSale = new Check();
+			checkSale.setCheckNumber(checkNumber);
+			System.out.println("Your paid with check number " + checkNumber);
+
+			/*
+			 * System.out.println("Subtotal: " + sale1.calcSubtotal());
+			 * System.out.println("Sales Tax: " + sale1.calcSalesTax());
+			 * System.out.println("Grand Total: " + sale1.calcGrandTotal());
+			 * System.out.println("Change: " + sale1.calcChange());
+			 */
+		}
+
+	}
 }
