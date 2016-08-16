@@ -5,9 +5,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
-//import java.paymentTypes.*;
-import paymentTypes.CandyWriteFile;
-import paymentTypes.Payment;
+import paymentTypes.*;
 
 public class POSApp {
 
@@ -43,6 +41,7 @@ public class POSApp {
 		int candyNumber = scan1.nextInt();
 		scan1.nextLine();
 		String candyName = list.get(candyNumber - 1).getName();
+		double candyPrice = list.get(candyNumber - 1).getPrice();
 		
 		//System.out.println(candyName);
 		
@@ -50,12 +49,23 @@ public class POSApp {
 		System.out.println("How many " + candyName + " do you want to buy today?");
 		int quantity = scan1.nextInt();
 		scan1.nextLine();
-		//Payment.setQuantity(quantity);
+		System.out.println("Would you like to pay with CASH, CREDIT or CHECK?");
+		String paymentMethod = scan1.nextLine();
 		
-		//output subtotal
+		if (paymentMethod.equalsIgnoreCase("cash")) {
+			//create Cash object; set to a variable
+			Cash sale1 = new Cash();
+			//in order to calculate a cash sale, need price and quantity
+			sale1.setPrice(candyPrice);
+			sale1.setQuantity(quantity);
+			
+			/*System.out.println(sale1.calcSubtotal());
+			System.out.println(sale1.calcSalesTax());
+			System.out.println(sale1.calcGrandTotal());
+			System.out.println(sale1.calcChange());*/
+		}
 		
-
-		System.out.println();
+		
 		
 	}
 
