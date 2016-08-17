@@ -5,6 +5,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 //import java.paymentTypes.*;
 
@@ -47,10 +48,16 @@ public class POSApp {
 		double totalSubtotal = 0.0;
 
 		while (choice.equalsIgnoreCase("yes")) {
-
+			int candyNumber = 0;
+			while(candyNumber > 13 || candyNumber < 0) {
+				try {
 			System.out.println("What kind of candy would you like today? (Enter candy number)");
-			int candyNumber = scan1.nextInt();
+			candyNumber = scan1.nextInt();
+				
 			scan1.nextLine();
+				} catch (InputMismatchException e) {
+					System.out.println("Enter a valid number");
+				}
 			String candyName = list.get(candyNumber - 1).getName();
 			double candyPrice = list.get(candyNumber - 1).getPrice();
 
@@ -63,7 +70,7 @@ public class POSApp {
 			System.out.println("Would you like to choose another item? (YES or NO)");
 			choice = scan1.nextLine();
 
-			// calculate tax
+			//calculate tax
 			// store math in variable total price
 			//
 		}
@@ -107,4 +114,5 @@ public class POSApp {
 
 
 	}
+}
 }
