@@ -35,4 +35,6 @@ public String formatNumber(double number) {
 		double salesTax = getSubTotal() * tax;
 		return salesTax;
 	}
+	
+	
 }

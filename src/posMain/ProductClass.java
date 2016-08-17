@@ -1,6 +1,5 @@
 package posMain;
 
-import java.util.ArrayList;
 
 public class ProductClass {
 	
