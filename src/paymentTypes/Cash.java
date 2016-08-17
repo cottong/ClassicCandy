@@ -19,7 +19,13 @@ public class Cash extends Payment {
 		Scanner scan1 = new Scanner(System.in);
 		double userInput = scan1.nextDouble();
 		scan1.nextLine();
+		while (userInput < calcGrandTotal()) {
+			System.out.println("That is not enough money.  Please enter another amount. ");
+			userInput = scan1.nextDouble();
+			scan1.nextLine();
+		}
 		setAmountTendered(userInput);
+		
 		change = getAmountTendered() - calcGrandTotal();
 		
 		scan1.close();
