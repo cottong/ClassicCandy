@@ -323,15 +323,11 @@ public class POSApp {
 		System.out.println("123 Grand Circus Drive");
 		System.out.println("Detroit, MI 48201");
 		System.out.println();
-		System.out.println("Candy Name" + "\t" + "\t" + "Quantity" + "\t"
-				+ "Price" + "\t" + "Total");
+		//System.out.format("Candy Name"+ "\t" + "Quantity" + "t\"+ "Total");
 		System.out.println();
 		for (int i = 0; i < itemsPurchased.size(); i++) {
-			System.out.print(itemsPurchased.get(i).getCandyName() + "\t" + "\t");
-			System.out.print(itemsPurchased.get(i).getQuantity() + "\t" + "\t");
-			System.out.print(itemsPurchased.get(i).getPrice() + "\t"+ "\t");
-			System.out.print(itemsPurchased.get(i).getSubTotal());
-			System.out.println();
+			System.out.format("%-32s%-10d%-16d%-16s", itemsPurchased.get(i).getCandyName(), itemsPurchased.get(i).getQuantity(), itemsPurchased.get(i).getPrice(), itemsPurchased.get(i).getSubTotal());
+			
 
 		}
 
