@@ -1,5 +1,6 @@
 package posMain;
 
+import java.util.ArrayList;
 
 public class ProductClass {
 	
@@ -40,10 +41,7 @@ public class ProductClass {
 		this.description = description;
 	}
 
-
-	}
-
 	
 	
 	
-
+}

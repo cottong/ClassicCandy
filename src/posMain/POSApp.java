@@ -3,12 +3,14 @@ package posMain;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 //import java.paymentTypes.*;
+
 
 import paymentTypes.*;
 
@@ -186,8 +188,9 @@ public class POSApp {
 
 		String choice = "yes";
 
-		double totalSubtotal = 0.0;
+		double totalSubtotal = 0.00;
 		ArrayList<Receipt> itemsPurchased = new ArrayList<Receipt>();
+		
 		while (choice.equalsIgnoreCase("yes")) {
 			int candyNumber = 1;
 			String candyName = "";
@@ -224,6 +227,7 @@ public class POSApp {
 					scan1.nextLine();
 				}
 			}
+
 			double subTotal = candyPrice * quantity;
 			Receipt r = new Receipt(candyName, quantity, candyPrice, subTotal);
 			itemsPurchased.add(r);
@@ -313,9 +317,6 @@ public class POSApp {
 
 			}
 
-
-		
-
 		}
 		System.out.println();
 
@@ -323,11 +324,11 @@ public class POSApp {
 		System.out.println("123 Grand Circus Drive");
 		System.out.println("Detroit, MI 48201");
 		System.out.println();
-		//System.out.format("Candy Name"+ "\t" + "Quantity" + "t\"+ "Total");
+		System.out.format("Candy Name"+ "\t" + "Quantity" + "\t"+ "Total");
 		System.out.println();
 		for (int i = 0; i < itemsPurchased.size(); i++) {
-			System.out.format("%-32s%-10d%-16d%-16s", itemsPurchased.get(i).getCandyName(), itemsPurchased.get(i).getQuantity(), itemsPurchased.get(i).getPrice(), itemsPurchased.get(i).getSubTotal());
-			
+			System.out.format(itemsPurchased.get(i).getCandyName() +"\t" +  itemsPurchased.get(i).getQuantity() + "\t"+itemsPurchased.get(i).getPrice() +"\t" + itemsPurchased.get(i).getSubTotal());
+			System.out.println();
 
 		}
 

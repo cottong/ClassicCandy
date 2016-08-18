@@ -1,5 +1,7 @@
 package posMain;
 
+import java.text.DecimalFormat;
+
 public class Receipt {
 private int quantity;
 private double price;
@@ -36,5 +38,7 @@ public Receipt(String candyName, int quantity, double price, double subTotal){
 	setPrice(price);
 	setSubTotal(subTotal);
 }
+
+
 
 }
